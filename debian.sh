@@ -1,14 +1,10 @@
 #!/bin/bash
 
-if [ "$(whoami)" == "root" ]
-then
-    echo "we are root"
-else
-    echo "we are $(whoami)"
-    exit 1
-fi
+# ensure up to date repos
+sudo apt update --fix-missing && sudo apt update 
 
-apt update
+# system
+sudo apt install htop tree tmux curl fping -y 
 
-apt install htop tree tmux curl 
-apt install bmon ethtool nmap iperf iperf3 netperf
+# network
+sudo apt install bmon ethtool nmap iperf iperf3 netperf -y 

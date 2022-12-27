@@ -9,3 +9,6 @@ else
 fi
 
 apt update
+
+apt install htop tree tmux curl 
+apt install bmon ethtool nmap iperf iperf3 netperf

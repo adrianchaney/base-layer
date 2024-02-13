@@ -1,13 +1,24 @@
 #!/bin/bash
+################################################################################
+set -euo pipefail
+################################################################################
+
+function linebreak() {
+    for (( i = 0; i < $1; i++)); do
+        printf '#'
+    done
+    printf '\n'
+}
+
 
 # ensure up to date repos
-sudo apt update --fix-missing && sudo apt update
-
-# system
-sudo apt install htop tree tmux curl fping -y
+apt update --fix-missing && apt update
 
 # network
-sudo apt install bmon ethtool nmap iperf iperf3 netperf -y
+apt install -y wget curl fping traceroute bmon snmp snmp-mibs-downloader nmap ss iperf iperf3 netperf
 
-# work temp
-sudo apt install gcc make perl subversion cron awscli
+# interface
+apt install -y mtr ifplugstatus ethtool
+
+# system
+apt install -y htop tree tmux 
